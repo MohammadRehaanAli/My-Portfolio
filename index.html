@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio of Mohammad Rehaan Ali</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Artifact+Syntax+Guide&display=swap" rel="stylesheet"> <!-- Added stylish font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #666;
+            --accent: #2563eb;
+            --bg: #ffffff;
+            --card-bg: #f8fafc;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #ffffff;
+            --secondary: #aaaaaa;
+            --bg: #1a1a1a;
+            --card-bg: #1A1A1A;
+            --nav-bg: rgba(26, 26, 26, 0.8); /* Adjusted nav background for dark theme */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+       /* Navigation */
+.nav {
+    padding: 0.7rem 5%;  /* Reduced padding to make it shorter */
+    height: 60px; /* Explicit height to ensure consistency */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+/* Logo and heading */
+.nav-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 150px; /* Adjust size as needed */
+    width: auto;
+    padding-top: 10px; /* Aligns logo properly */
+    margin-right: 1rem; /* Adds space between logo and text */ 
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    align-items: center; /* Aligns links properly */
+    gap: 1.5rem; /* Adjust spacing between links */
+    margin-left: auto; /* Pushes links to the right */
+}
+
+/* Navigation links */
+.nav-link {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: var(--transition);
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+/* Hover effect */
+.nav-link:hover {
+    color: var(--accent);
+}
+
+/* Theme toggle button next to links */
+.theme-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--secondary);
+    font-size: 1.2rem;
+    transition: var(--transition);
+    margin-left: 1.5rem; /* Space between last link and toggle button */
+}
+
+/* Hover effect for theme toggle */
+.theme-toggle:hover {
+    color: var(--accent);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 5% 4rem;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Background Video */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Dark Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Adjust darkness */
+    z-index: 0;
+}
+
+/* Content */
+.hero-content {
+    max-width: 800px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards ease-out;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #ddd;
+}
+
+/* Highlight */
+.highlight {
+    color: white; /* Accent color */
+}
+
+/* Icons */
+.hero-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.hero-icon {
+    font-size: 2rem;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-icon:hover {
+    color: #FFD700;
+    transform: scale(1.2);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth Scroll Effect */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    .hero-icon {
+        font-size: 1.8rem;
+    }
+}
+
+
+        /* About Section */
+        .about {
+            padding: 4rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .about-content {
+            max-width: 600px;
+            font-size: 1.3rem;
+        }
+
+        .about-video {
+        max-width: 600px; /* Increased size */
+        border-radius: 12px;
+        aspect-ratio: 4 / 3; /* Ensures the video maintains a 4:3 aspect ratio */
+        object-fit: cover; /* Ensures the video scales properly */
+        }
+
+        .about-content h2 {
+        margin-bottom: 15px; /* Adds space between heading and description */
+        position: relative;
+        display: inline-block;
+    }
+
+    .about-content h2::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px; /* Adjusts the distance of the underline */
+        width: 100%;
+        height: 3px; /* Thickness of the underline */
+        background-color: white;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Glowing effect */
+    }
+
+            .title {
+        text-align: center;
+        font-size: 2.2rem; /* Slightly increased */
+        margin: 50px 0; /* More spacing */
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 1000px; /* Increased width for larger boxes */
+        margin: 0 auto;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 5px; /* Slightly thicker */
+        height: 100%;
+        background-color: white;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        position: relative;
+        width: 48%; /* Increased width slightly */
+        padding: 30px; /* More padding */
+        box-sizing: border-box;
+        margin-bottom: 80px; /* Increased gap between boxes */
+    }
+
+    .timeline-item.left {
+        left: 0;
+        text-align: left;
+        padding-right: 50px; /* More space between left boxes and the timeline */
+    }
+
+    .timeline-item.right {
+        left: 52%; /* Pushes right-side boxes further */
+        text-align: left;
+        margin-top: -40px; /* Moves right-side boxes slightly up */
+    }
+
+    .timeline-item .content {
+        background-color: black;
+        padding: 30px; /* Bigger box */
+        border: 2px solid transparent;
+        border-radius: 10px;
+        position: relative;
+        transition: 0.3s ease;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    }
+
+    .timeline-item:hover .content {
+        border-color: white;
+        box-shadow: 0 0 12px white;
+    }
+
+    .timeline-item .company-logo {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 50px; /* Increased size */
+        height: 50px;
+    }
+
+    h3 {
+        font-size: 1.5rem; /* Increased */
+        font-weight: 600;
+        border-bottom: 2px solid gray;
+        padding-bottom: 8px;
+    }
+
+    .company {
+        font-weight: bold;
+        font-size: 1.1rem; /* Bigger */
+        color: #cccccc;
+    }
+
+    .duration {
+        font-size: 1rem; /* Bigger */
+        color: #aaaaaa;
+        display: block;
+        margin-top: 8px;
+    }
+
+    .description {
+        font-size: 1rem; /* Bigger */
+        margin-top: 12px;
+    }
+    .timeline-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    }
+    .timeline-item {
+        transition: transform 0.2s ease-in-out;
+    }
+    .timeline-item:hover {
+        transform: scale(1.05);
+    }
+
+    /* Media Query for Responsiveness */
+    @media screen and (max-width: 768px) {
+        .timeline::before {
+            left: 20px;
+        }
+
+        .timeline-item {
+            width: 100%;
+            left: 0;
+            text-align: left;
+            padding-left: 50px;
+        }
+
+        .timeline-item.right {
+            left: 0;
+            margin-top: 0; /* Reset margin */
+        }
+    }
+
+        /* Section Headings */
+        .section-heading {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white; /* Changed color to black */
+        }
+
+        /* Projects Grid */
+.projects-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding-top: 1rem; /* Adjust this value to move the projects section lower */
+    position: relative;
+}
+
+.projects {
+    display: flex;
+    animation: slide 25s linear infinite;
+}
+
+.project-card {
+    background: black;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    border-radius: 12px;
+    margin: 0 1rem;
+    flex: 0 0 300px; /* Ensures equal size */
+    transition: var(--transition);
+    text-decoration: none;
+    color: white;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+}
+
+/* Keyframes for smooth infinite loop */
+@keyframes slide {
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(calc(-150px * 10));
+            }
+        }
+            
+        /* View All Projects Button */
+.view-all-container {
+    text-align: center;
+    margin-top: 2rem; /* Adds spacing above the button */
+}
+
+.view-all-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.view-all-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 2px solid white; /* White glowing border */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glowing effect */
+}
+
+    /* Container for both boxes */
+    .skills-education-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem; /* Adds space between the two boxes */
+        padding: 4rem 5%;
+        padding-top: 5rem; /* Adjusted top padding */
+    }
+
+    /* Common box styling */
+    .box {
+        flex: 1; /* Equal width for both boxes */
+        background: rgba(255, 255, 255, 0.1); /* Light background */
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Skills section inside the box */
+    .skills-box h1,
+    .education-box h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center; /* Keeping the title centered */
+    }
+
+    /* Skills styling (unchanged) */
+    .skills-box{
+        flex: 1;
+        background-color: black;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        color: white;
+        text-align: left; /* Aligning text to the left */
+    }
+    .skills {
+        background-color: #1a1a1a;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 2rem 0; /* Increased gap between boxes */
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+        transition: 0.3s ease;
+        position: relative;
+        border: 2px solid transparent;
+    }
+    .skills:hover {
+        border-color: white;
+        box-shadow: 0 0 15px white;
+    }
+    .skills span img {
+        width: 50px;
+        height: 50px;
+        margin-right: 1.5rem;
+    }
+
+    /* Education box styling */
+    .education-box {
+        flex: 1;
+        background-color: black;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        color: white;
+        text-align: left; /* Aligning text to the left */
+    }
+
+    /* Education items (B.Tech & Intermediate) */
+    .education-item {
+        background-color: #1a1a1a;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 2rem 0; /* Increased gap between boxes */
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+        transition: 0.3s ease;
+        position: relative;
+        border: 2px solid transparent;
+    }
+
+    /* Hover Effect with Glowing Border */
+    .education-item:hover {
+        border-color: white;
+        box-shadow: 0 0 15px white;
+    }
+
+    /* Institution Name */
+    .education-item h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Degree or Course */
+    .education-item p {
+        font-size: 1.1rem;
+        color: #cccccc;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .skills-education-container {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .education-item {
+            margin: 1.5rem 0; /* Maintain spacing in smaller screens */
+        }
+    }
+        body {
+        background-color: #1A1A1A;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    .contact-section {
+        padding: 50px 20px;
+        text-align: center;
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
+
+    .reach-out {
+        font-style: italic;
+        color: #ccc;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .contact-title {
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    .italic {
+        font-style: italic;
+        opacity: 0.8;
+    }
+
+    .contact-text {
+        font-size: 16px;
+        color: #bbb;
+        max-width: 500px;
+        margin: auto;
+        line-height: 1.5;
+    }
+
+    .contact-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        border-radius: 30px;
+        background: none;
+        border: 2px solid white;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .contact-button:hover {
+        background: white;
+        color: black;
+        transform: scale(1.05);
+    }
+
+    .social-links {
+        margin-top: 30px;
+    }
+
+    .social-links a {
+        color: white;
+        font-size: 24px;
+        margin: 0 15px;
+        text-decoration: none;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .social-links a:hover {
+        transform: scale(1.2);
+    }
+
+    .email-text {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #bbb;
+    }
+
+    .footer {
+    background-color: #111; /* Dark background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer a {
+    color: #4db5ff; /* Light blue link */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer a:hover {
+    color: #fff; /* White on hover */
+    text-decoration: underline;
+}
+
+
+        @media (max-width: 769px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+                margin-top: 1rem;
+
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+
+            .theme-toggle {
+                align-self: flex-end;
+            }
+
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: var(--secondary);
+                background: none;
+                border: none;
+                margin-top: 1rem;
+                
+            }
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about img {
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <<nav class="nav">
+        <div class="nav-heading">
+        </div>
+        <div class="logo">
+            <img src="2-removebg-preview.png" alt="MDRA Logo">
+        </div>
+        <p class="tagline">Crafting Code, Engineering Insights.</p>
+        <div class="nav-links">
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <button class="theme-toggle" id="theme-toggle">🌞</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="9665235-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div> <!-- Dark overlay for better text visibility -->
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Mohammad Rehaan Ali</span></h1>
+            <h2>Data Analyst | Software Developer</h2>
+            <div class="hero-icons">
+                <a href="https://linkedin.com/in/mohammad-rehaan-ali" target="_blank" class="hero-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/MohammadRehaanAli" target="_blank" class="hero-icon"><i class="fab fa-github"></i></a>
+                <a href="https://datascienceportfol.io/rehaanali" target="_blank" class="hero-icon"><i class="fas fa-briefcase"></i></a>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="about">
+        <div class="about-content">
+            <h2>More About Myself</h2>
+            <p>Hi, Myself Mohammad Rehaan Ali a final-year B.Tech CSE (Data Science) student with expertise in data analytics, machine learning, and software development. Skilled in Python, MySQL, Power BI, Tableau, and Excel, I excel in data analysis, statistical modeling, AI, and full-stack development. With a strong foundation in building data-driven applications and interactive dashboards, I am passionate about leveraging technology to drive insights and innovation. 🚀</p>
+        </div>
+        <video class="about-video" autoplay loop muted playsinline>
+            <source src="lv_0_20250311013948.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <h2 class="title">My Journey</h2>
+
+    <div class="timeline-container">
+        <div class="timeline">
+            <a href="https://www.linkedin.com/in/mohammad-rehaan-ali/details/experience/" target="_blank" class="timeline-link">
+                <div class="timeline-item left">
+                    <div class="content">
+                        <img src="q logo.jpg" alt="Quantium Logo" class="company-logo">
+                        <h3>Data Analytics Intern</h3>
+                        <p class="company">Quantium</p>
+                        <span class="duration">December 2024 – February 2025</span>
+                        <p class="description">Analyzed 260K+ retail transactions using Python, identified sales trends, optimized trial store performance, and contributed to a 12% revenue growth.</p>
+                    </div>
+                </div>
+            </a>
+    
+            <a href="https://www.linkedin.com/in/mohammad-rehaan-ali/details/experience/" target="_blank" class="timeline-link">
+                <div class="timeline-item right">
+                    <div class="content">
+                        <img src="a lgo.jpg" alt="Alteryx Logo" class="company-logo">
+                        <h3>Data Analyst Intern</h3>
+                        <p class="company">Alteryx SparkED</p>
+                        <span class="duration">September 2023 - November 2023</span>
+                        <p class="description">Focused on data cleansing, transformation, and documentation to improve data processing and analysis efficiency.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+<section id="projects" class="projects-wrapper">
+    <h2 class="section-heading">Latest Projects</h2>
+    <div class="projects">
+        <a href="https://github.com/MohammadRehaanAli/SQL-Product-sales-analysis" class="project-card" target="_blank">
+            <img src="Dashboard Sql & Excel.png" alt="SQL & Tableau Project">
+            <h3>SQL & Tableau Project</h3>
+            <p>Data Visualization Project | Technologies Used: SQL, Tableau, MySQL</p>
+        </a>
+        <a href="https://github.com/MohammadRehaanAli/Uber-Trip-Analysis-Using-Machine-learning" class="project-card" target="_blank">
+            <img src="Uber Trip Dashbarad.png" alt="Uber Trip Analysis">
+            <h3>Uber Trip Analysis using Machine Learning</h3>
+            <p>Data Analysis Project | Technologies Used: Python, Machine Learning, MS Excel</p>
+        </a>
+        <a href="https://github.com/MohammadRehaanAli/Energy-Consumption-trend-analysis-using-Power-BI" class="project-card" target="_blank">
+            <img src="Overview dashboard.png" alt="Energy Consumption Analysis">
+            <h3>Energy Consumption Analysis using Power BI</h3>
+            <p>Business Intelligence Project | Technologies Used: Power BI, Excel</p>
+        </a>
+        <a href="#" class="project-card" target="_blank">
+            <img src="credit card.png" alt="Uber Trip Analysis">
+            <h3>Identifying Fraudulent Credit Card Transactions Using Ensemble Learning</h3>
+            <p>Software Development Project | Technologies Used: Python, Machine Learning, HTML, css.</p>
+        </a>
+        <a href="#" class="project-card" target="_blank">
+            <img src="Disease dection dasboard.png" alt="SQL & Tableau Project">
+            <h3>Disease Detection and Early Warning System in Cattle farms</h3>
+            <p>Software Development Project | Technologies Used: Python, Machine Learning, HTML, css.</p>
+        </a>
+        <a href="#" class="project-card" target="_blank">
+            <img src="portfloo.png" alt="Portfolio">
+            <h3>Portfolio</h3>
+            <p>Software Development Project | Technologies Used: HTML,CSS,JS,GitHub</p>
+        </a>
+    </div>
+    <div class="view-all-container">
+        <a href="https://github.com/MohammadRehaanAli?tab=repositories" target="_blank" class="view-all-button">View All Projects Here ↗</a>
+    </div>
+</section>
+    <section id="Skills" class="skills-education-container">
+        <!-- Skills Section -->
+        <div class="skills-box box">
+            <h1>Skills</h1>
+            <div class="content">
+                <h2>Programming Languages</h2>
+                <div class="skills">
+                    <span><img src="python.png" alt="Python" title="Python"></span>
+                    <span><img src="mysql.png" alt="MySQL" title="MySQL"></span>
+                    <span><img src="html (1).png" alt="HTML" title="HTML"></span>
+                    <span><img src="css-3.png" alt="CSS" title="CSS"></span>
+                    <span><img src="js.png" alt="JavaScript" title="JavaScript"></span>
+                </div>
+                <h2>Tools</h2>
+                <div class="skills">
+                    <span><img src="excel.png" alt="Excel" title="Excel"></span>
+                    <span><img src="power-bi-icon.webp" alt="Power BI" title="Power BI"></span>
+                    <span><img src="tableau-software.png" alt="Tableau" title="Tableau"></span>
+                    <span><img src="chatgpt.png" alt="ChatGPT" title="ChatGPT"></span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="education-box box">
+        <h1>Education</h1>
+        <div class="education-timeline">
+            <div class="education-item">
+                <h2>B.Tech in Computer Science Engineering (Data Science)</h2>
+                <p>QIS Institute of Engineering and Technology</p>
+                <span class="duration">2021 – 2025</span>
+            </div>
+            <div class="education-item">
+                <h2>Intermediate (MPC)</h2>
+                <p>Sri Chaitanya Junior College</p>
+                <span class="duration">2019 – 2021</span>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact" class="contact-section">
+        <p class="reach-out">Reach out anytime</p>
+        <h2 class="contact-title">Let's Stay <span class="italic">Connected</span></h2>
+        <p class="contact-text">Got questions or want to collaborate? Feel free to reach out—I'm open to new projects or just a casual chat!</p>
+        
+        <a href="mailto:rehaan06504@gmail.com" class="contact-button">
+            ✉ Contact Me
+        </a>
+    
+        <div class="social-links">
+            <a href="https://github.com/MohammadRehaanAli" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mohammad-rehaan-ali/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:rehaan06504@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2025 Mohammad Rehaan Ali. All rights reserved.</p>
+        <p>Designed by <a href="https://www.linkedin.com/in/mohammad-rehaan-ali/" target="_blank">Mohammad Rehaan Ali</a></p>    
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        document.querySelectorAll(".timeline-item .content").forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+        item.style.boxShadow = "0 0 15px white";
+    });
+
+    item.addEventListener("mouseleave", () => {
+        item.style.boxShadow = "none";
+    });
+});
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Message sent successfully!');
+            e.target.reset();
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            themeToggle.textContent = document.body.dataset.theme === 'dark' ? '🌞' : '🌙';
+        });
+
+        // Set initial theme
+        document.body.dataset.theme = 'dark';
+        themeToggle.textContent = '🌞';
+
+        // Navbar toggle for mobile
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
