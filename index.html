@@ -3,19 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <!-- Open Graph Tags for Social Media Sharing -->
-       <meta property="og:title" content="Portfolio of Mohammad Rehaan Ali">
-       <meta property="og:description" content="Explore my projects, skills, and experience.">
-       <meta property="og:image" content="Black and White Simple Art Director LinkedIn Banner (3).png">
-       <meta property="og:url" content="https://mohammadrehaanali.github.io/My-Portfolio/">
-       <meta property="og:type" content="website">
-   
-       <!-- Twitter Card for Better Preview on Twitter -->
-       <meta name="twitter:card" content="summary_large_image">
-       <meta name="twitter:title" content="Portfolio of Mohammad Rehaan Ali">
-       <meta name="twitter:description" content="Explore my projects, skills, and experience.">
-       <meta name="twitter:image" content="https://mohammadrehaanali.github.io/My-Portfolio/assets/Black and White Simple Art Director LinkedIn Banner (3).png">
-
     <title>Portfolio of Mohammad Rehaan Ali</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Artifact+Syntax+Guide&display=swap" rel="stylesheet"> <!-- Added stylish font -->
@@ -175,12 +162,16 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5); /* Softer, lighter glow */
+    
 }
 
 .hero h2 {
     font-size: 1.8rem;
     font-weight: 500;
     color: white;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5); /* Softer, lighter glow */
 }
 
 /* Highlight */
@@ -206,6 +197,27 @@
     color: #FFD700;
     transform: scale(1.2);
 }
+
+.resume-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 12px 24px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white; /* white border */
+    border-radius: 999px; /* pill/cylinder shape */
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.resume-button:hover {
+    
+    background: white;
+    color: black;
+    border-color: white; /* keep white border on hover */
+}
+
 
 /* Fade-in animation */
 @keyframes fadeIn {
@@ -293,6 +305,7 @@ html {
         width: 5px; /* Slightly thicker */
         height: 100%;
         background-color: white;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Glowing effect */
         transform: translateX(-50%);
     }
 
@@ -301,7 +314,7 @@ html {
         width: 48%; /* Increased width slightly */
         padding: 30px; /* More padding */
         box-sizing: border-box;
-        margin-bottom: 80px; /* Increased gap between boxes */
+        margin-bottom: 50px; /* Increased gap between boxes */
     }
 
     .timeline-item.left {
@@ -374,6 +387,35 @@ html {
     .timeline-item:hover {
         transform: scale(1.05);
     }
+
+    /* Connector for the left side box */
+.timeline-item.right::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -18px; /* Position the connector to the left of the box */
+    width: 48px; /* Length of the connector line */
+    height: 3.8px; /* Thickness of the connector line */
+    background-color: white;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Glowing effect */
+}
+
+/* Connector for the right side box */
+.timeline-item.left::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -18px; /* Position the connector to the right of the box */
+    width: 68px; /* Length of the connector line */
+    height: 3px; /* Thickness of the connector line */
+    background-color: white;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Glowing effect */
+}
+/* Remove hover effect from the connector */
+.timeline-item.right::after.hover {
+    transition: none; /* Disable transition for the connector */
+    background-color: white; /* Ensure the connector color remains unchanged */
+}
 
     /* Media Query for Responsiveness */
     @media screen and (max-width: 768px) {
@@ -456,10 +498,9 @@ html {
                 transform: translateX(0);
             }
             to{
-                transform: translateX(calc(-150px * 10));
+                transform: translateX(calc(-100px * 15));
             }
-        }
-            
+        }     
         /* View All Projects Button */
 .view-all-container {
     text-align: center;
@@ -607,8 +648,8 @@ html {
     .contact-section {
         padding: 50px 20px;
         text-align: center;
-        padding-top: 10rem;
-        padding-bottom: 10rem;
+        padding-top: 100rem;
+        padding-bottom: 100rem;
     }
 
     .reach-out {
@@ -616,6 +657,8 @@ html {
         color: white;
         font-size: 14px;
         margin-bottom: 10px;
+        padding-top: 10rem;
+
     }
 
     .contact-title {
@@ -674,10 +717,9 @@ html {
     .social-links a:hover {
         transform: scale(2);
     }
-
-   
-    .footer {
-    background-color: #111; /* Dark background */
+  
+   .footer {
+    background-color: black; /* Dark background */
     color: #fff; /* White text */
     text-align: center;
     padding: 20px;
@@ -690,13 +732,40 @@ html {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease-in-out;
+    padding-top: 120rem
 }
 
 .footer a:hover {
     color: #fff; /* White on hover */
     text-decoration: underline;
 }
+.contact-section {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+}
 
+.contact-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust darkness */
+    z-index: -1;
+}
 
         @media (max-width: 769px) {
             .hero h1 {
@@ -762,10 +831,12 @@ html {
         </div>
         <p class="tagline">Crafting Code, Engineering Insights.</p>
         <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <button class="theme-toggle" id="theme-toggle">🌞</button>
+            
         </div>
     </nav>
 
@@ -781,25 +852,27 @@ html {
             <div class="hero-icons">
                 <a href="https://linkedin.com/in/mohammad-rehaan-ali" target="_blank" class="hero-icon"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/MohammadRehaanAli" target="_blank" class="hero-icon"><i class="fab fa-github"></i></a>
-                <a href="https://datascienceportfol.io/rehaanali" target="_blank" class="hero-icon"><i class="fas fa-briefcase"></i></a>
+                <a href="mailto:rehaanmailbox@gmail.com" target="_blank" class="hero-icon"><i class="fas fa-envelope"></i></a>
             </div>
+            <a href="Mohammad Rehaan (DA).pdf" class="resume-button" target="_blank">✉ View my Resume</a>
+        </div>
         </div>
     </section>
     
 
-    <section class="about">
+    <section class="about" id="about">
         <div class="about-content">
             <h2>More About Myself</h2>
-            <p>Hi, Myself Mohammad Rehaan Ali a final-year B.Tech CSE (Data Science) student with expertise in data analytics, machine learning, and software development. Skilled in Python, MySQL, Power BI, Tableau, and Excel, I excel in data analysis, statistical modeling, AI, and full-stack development. With a strong foundation in building data-driven applications and interactive dashboards, I am passionate about leveraging technology to drive insights and innovation. 🚀</p>
+            <p>I’m Mohammad Rehaan Ali, a recent Computer Science graduate with a strong focus on Data Science and a passion for turning data into impactful insights. I’ve worked on real-world data analytics projects during my internship at Quantium and built dashboards and predictive models using Python, SQL, Power BI, and Tableau. Alongside my data journey, I’ve also explored software development through various projects, applying my programming skills to build efficient, scalable solutions. I’m always eager to learn, create, and contribute to tech-driven teams solving real problems.🚀</p>
         </div>
         <video class="about-video" autoplay loop muted playsinline>
-            <source src="lv_0_20250311013948.mp4" type="video/mp4">
+            <source src="Background_Video_content.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </section>
 
+    <section id="experience"></section>
     <h2 class="title">My Journey</h2>
-
     <div class="timeline-container">
         <div class="timeline">
             <a href="https://www.linkedin.com/in/mohammad-rehaan-ali/details/experience/" target="_blank" class="timeline-link">
@@ -827,6 +900,8 @@ html {
             </a>
         </div>
     </div>
+    </body>
+    </section>
     
 <section id="projects" class="projects-wrapper">
     <h2 class="section-heading">Latest Projects</h2>
@@ -866,7 +941,7 @@ html {
         <a href="https://github.com/MohammadRehaanAli?tab=repositories" target="_blank" class="view-all-button">View All Projects Here ↗</a>
     </div>
 </section>
-    <section id="Skills" class="skills-education-container">
+<section id="skills" class="skills-education-container">
         <!-- Skills Section -->
         <div class="skills-box box">
             <h1>Skills</h1>
@@ -885,6 +960,8 @@ html {
                     <span><img src="power-bi-icon.webp" alt="Power BI" title="Power BI"></span>
                     <span><img src="tableau-software.png" alt="Tableau" title="Tableau"></span>
                     <span><img src="chatgpt.png" alt="ChatGPT" title="ChatGPT"></span>
+                    <span><img src="gut.png" alt="ChatGPT" title="Git"></span>
+                    <span><img src="github.png" alt="ChatGPT" title="GitHub"></span>
                 </div>
             </div>
         </div>
@@ -894,12 +971,12 @@ html {
         <div class="education-timeline">
             <div class="education-item">
                 <h2>B.Tech in Computer Science Engineering (Data Science)</h2>
-                <p>QIS Institute of Engineering and Technology</p>
+                <p>QIS Institute of Engineering and Technology, Ongole, Andhra Pradesh</p>
                 <span class="duration">2021 – 2025</span>
             </div>
             <div class="education-item">
-                <h2>Intermediate (MPC)</h2>
-                <p>Sri Chaitanya Junior College</p>
+                <h2>Secondary Education-Intermediate (MPC)</h2>
+                <p>Sri Chaitanya Junior College, Ongole, Andhra Pradesh</p>
                 <span class="duration">2019 – 2021</span>
             </div>
             </div>
@@ -908,6 +985,14 @@ html {
     
 
     <section id="contact" class="contact-section">
+        <!-- Background video -->
+    <video autoplay muted loop class="contact-video">
+        <source src="9665235-hd_1920_1080_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="contact-overlay"></div> <!-- Optional: dark overlay for contrast -->
+
+    <!-- Content -->
         <p class="reach-out">Reach out anytime</p>
         <h2 class="contact-title">Let's Stay <span class="italic">Connected</span></h2>
         <p class="contact-text">Got questions or want to collaborate? Feel free to reach out—I'm open to new projects or just a casual chat!</p>
@@ -926,7 +1011,6 @@ html {
         <p>&copy; 2025 Mohammad Rehaan Ali. All rights reserved.</p>
         <p>Designed by <a href="https://www.linkedin.com/in/mohammad-rehaan-ali/" target="_blank">Mohammad Rehaan Ali</a></p>    
     </footer>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
     <script>
